@@ -6,7 +6,7 @@ import Movie from "./Movie/Movie";
 import Search from "./Search/Search";
 
 
-const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";
+const MOVIE_API_URL = "https://www.omdbapi.com/?s=galaxy&apikey=3110a35";
 
 
 const initialState = {
@@ -47,7 +47,12 @@ const App = () => {
   //A typical useReducer hook will look like this:
   const [state, dispatch] = useReducer(reducer, initialState);
 
-    useEffect(() => {
+    
+  //If you’re familiar with React class lifecycle methods, 
+  // you can think of useEffect Hook as componentDidMount, 
+  //componentDidUpdate, and componentWillUnmount combined.
+  
+  useEffect(() => {
         fetch(MOVIE_API_URL)
             .then(response => response.json())
             .then(jsonResponse => {
@@ -64,7 +69,7 @@ const App = () => {
       	type: "SEARCH_MOVIES_REQUEST"
     	});
 	
-        fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=4a3b711b`)
+        fetch(`https://www.omdbapi.com/?s=${searchValue}&apikey=3110a35`)
       	.then(response => response.json())
       	.then(jsonResponse => {
         	if (jsonResponse.Response === "True") {
@@ -81,6 +86,7 @@ const App = () => {
       	});
 	  };
 
+    //deconstruction
     const { movies, errorMessage, loading } = state;
 
     return (

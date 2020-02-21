@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+//the first hooks API that we are going to use, and it’s called useState
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState("");
